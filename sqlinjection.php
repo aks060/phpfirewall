@@ -12,9 +12,11 @@ else
 $url=$protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $uri=$_SERVER['REQUEST_URI'];
 $deuri=urldecode($uri);
+
 /*     Function to block all the request and Show Access Denied message to the user   */
 function stopit()
-{?>
+{
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +52,7 @@ for($i=0; $i<strlen($deuri); $i++)
 {
 	if($deuri[$i]=="'" || $deuri[$i]=='"')
 		redi($deuri);
-	$block=array('*', '!', '(', ')','<','>','=','/*','*/');
+	$block=array('*', '!', '(', ')','<','>','=');
 	if(in_array($deuri[$i], $block))
 	{
 		stopit();
@@ -62,7 +64,7 @@ $sevierity=0;
 $flag=0;
 for($j=0; $j<count($get_url); $j++)
 {
-	$block=array('union', 'select', 'from', 'order by', '*','#');
+	$block=array('union', 'select', 'from', 'order', '*','#');
 	//print_r($block);
 	for($i=0; $i<count($block); $i++)
 		{
