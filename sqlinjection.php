@@ -1,4 +1,5 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/phpfirewall/functions.php');
 $protocol='';
 $getpara='';
 if(isset($_SERVER['HTTPS']))
@@ -14,20 +15,7 @@ $uri=$_SERVER['REQUEST_URI'];
 $deuri=urldecode($uri);
 
 /*     Function to block all the request and Show Access Denied message to the user   */
-function stopit()
-{
-?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Not Allowed | Protected by Sky</title>
-</head>
-<body style="background-color:black; color:white;">
-	<center><h1>Not Allowed!! Protected by Sky Security</h1></center></body>
-</html>
-<?php
-exit(0);
-}
+stopit();				//Function present in functions.php
 /*  Function to redirect the vulnerable get parameter (' or ")   to simple url*/
 function redi($deuri)
 {
