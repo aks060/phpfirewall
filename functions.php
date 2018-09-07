@@ -19,5 +19,4 @@ function stopit()
 exit(0);
 }
 
-
 ?>
