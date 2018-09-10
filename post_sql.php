@@ -4,6 +4,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 {
   foreach($_POST as $par)
   {
-     
+     $val=$_POST[$par];
+    echo $val;
   }
 }
